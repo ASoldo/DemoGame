@@ -1,4 +1,4 @@
-# How to godot project to git
+# How to setup godot project to git
 
 ### To set up a Godot project with Git, follow these steps
 
