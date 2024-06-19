@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bjw8wvhj63ivr"]
+
+[ext_resource type="Shader" path="res://shaders/math_demos.gdshader" id="1_o1g67"]
+
+[resource]
+shader = ExtResource("1_o1g67")
+shader_parameter/front_wave_color = Color(0.0196078, 0.713726, 1, 1)
+shader_parameter/front_fill_color = Color(0, 0, 1, 1)
+shader_parameter/back_wave_color = Color(0, 0.870588, 1, 1)
+shader_parameter/back_fill_color = Color(0, 0.67451, 1, 1)
+shader_parameter/frequency = 1.0
+shader_parameter/amplitude = 0.05
+shader_parameter/offset = Vector2(0, 0.5)
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.4
+shader_parameter/direction = true
+shader_parameter/speed = 0.5
+shader_parameter/use_circle = true

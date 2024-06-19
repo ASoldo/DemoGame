@@ -4,9 +4,9 @@
 
 [resource]
 shader = ExtResource("1_vq4f4")
-shader_parameter/front_wave_color = Color(1, 0, 0, 1)
-shader_parameter/front_fill_color = Color(0, 0, 1, 1)
-shader_parameter/back_wave_color = Color(0, 1, 0, 1)
+shader_parameter/front_wave_color = Color(0.660071, 0.511708, 0.109516, 1)
+shader_parameter/front_fill_color = Color(1, 0.776471, 0, 1)
+shader_parameter/back_wave_color = Color(0.968627, 0.909804, 0, 1)
 shader_parameter/back_fill_color = Color(1, 1, 0, 1)
 shader_parameter/frequency = 1.0
 shader_parameter/amplitude = 0.075
