@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cy72bguqlfrm8"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 652.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 85.0
+offset_top = 486.0
+offset_right = 1065.0
+offset_bottom = 517.0
+size_flags_vertical = 4
+text = "Click me"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 2
+offset_left = 399.0
+offset_top = 201.0
+offset_right = 697.0
+offset_bottom = 305.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "sdfasffad"
+placeholder_text = "Ojla"

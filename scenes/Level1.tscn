@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dxg7b0grh3358"]
+
+[ext_resource type="PackedScene" uid="uid://hpthf47ll7g1" path="res://objects/counter.tscn" id="1_1n1ky"]
+[ext_resource type="Script" path="res://scripts/testing.gd" id="1_ktgo3"]
+[ext_resource type="PackedScene" uid="uid://cy72bguqlfrm8" path="res://objects/menu.tscn" id="2_x8osb"]
+[ext_resource type="Script" path="res://scripts/custom_signals.gd" id="4_ecnpy"]
+[ext_resource type="Shader" path="res://shaders/circle.gdshader" id="5_6df78"]
+[ext_resource type="Texture2D" uid="uid://drfr58gsx6755" path="res://assets/icon.svg" id="5_a1g7l"]
+[ext_resource type="PackedScene" uid="uid://2sbnijbjwynt" path="res://objects/Player.tscn" id="5_aawvt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tnurj"]
+shader = ExtResource("5_6df78")
+shader_parameter/circle_color = Color(1, 0, 0, 1)
+shader_parameter/square_color = Color(0.955388, 0.591198, 0.694402, 1)
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/outline_radius = 0.3
+shader_parameter/outline_thickness = 0.01
+shader_parameter/outline = false
+shader_parameter/square_center = Vector2(0.5, 0.5)
+shader_parameter/square_size = Vector2(0.2, 0.2)
+shader_parameter/triangle_center = Vector2(0.4, 0.5)
+shader_parameter/triangle_size = Vector2(0.2, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fvggm"]
+shader = ExtResource("5_6df78")
+shader_parameter/circle_color = Color(1, 0, 0, 1)
+shader_parameter/square_color = Color(0, 0.964706, 0, 1)
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/outline_radius = 0.3
+shader_parameter/outline_thickness = 0.003
+shader_parameter/outline = false
+shader_parameter/square_center = Vector2(0.505, 0.5)
+shader_parameter/square_size = Vector2(0.2, 0.2)
+shader_parameter/triangle_center = Vector2(0.5, 0.5)
+shader_parameter/triangle_size = Vector2(0.2, 0.2)
+
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("nodeArray")]
+script = ExtResource("1_ktgo3")
+numberArray = Array[int]([1, 2, 3])
+nodeArray = [NodePath("Player")]
+
+[node name="Counter" parent="." instance=ExtResource("1_1n1ky")]
+position = Vector2(0, -1)
+
+[node name="Menu" parent="." instance=ExtResource("2_x8osb")]
+offset_left = 5.0
+offset_top = 100.0
+offset_right = 5.0
+offset_bottom = 100.0
+
+[node name="MyNode" type="Node2D" parent="."]
+script = ExtResource("4_ecnpy")
+myNodeName = "MySoldato"
+myNodeAge = 35
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_tnurj")
+position = Vector2(962, 320)
+texture = ExtResource("5_a1g7l")
+
+[node name="Player" parent="." instance=ExtResource("5_aawvt")]
+position = Vector2(574, 172)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fvggm")
+offset_left = 151.0
+offset_top = 374.0
+offset_right = 251.0
+offset_bottom = 474.0
+
+[connection signal="soki" from="MyNode" to="MyNode" method="_on_soki"]
