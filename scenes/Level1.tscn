@@ -86,7 +86,7 @@ offset_bottom = 495.0
 position = Vector2(574, 172)
 
 [node name="PotionBottle" type="Sprite2D" parent="."]
-position = Vector2(147, 482)
+position = Vector2(160, 452)
 scale = Vector2(0.397375, 0.386699)
 texture = ExtResource("8_h2hx8")
 
@@ -96,5 +96,6 @@ offset_left = -128.0
 offset_top = -59.0
 offset_right = 124.0
 offset_bottom = 187.0
+pivot_offset = Vector2(125, 125)
 
 [connection signal="soki" from="MyNode" to="MyNode" method="_on_soki"]
