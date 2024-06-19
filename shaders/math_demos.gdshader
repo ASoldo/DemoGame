@@ -6,8 +6,8 @@ uniform vec3 back_wave_color : source_color = vec3(0.0, 1.0, 0.0); // Color for 
 uniform vec3 back_fill_color : source_color = vec3(1.0, 1.0, 0.0); // Fill color for the back sine wave
 
 uniform float frequency = 1.0;
-uniform float amplitude = 0.5;
-uniform vec2 offset;
+uniform float amplitude = 0.075;
+uniform vec2 offset = vec2(0.0, 0.5);
 uniform vec2 center = vec2(0.5, 0.5); // Center of the circle
 uniform float radius = 0.4; // Radius of the circle
 uniform bool direction = true; // Scroll direction

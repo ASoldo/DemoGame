@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxg7b0grh3358"]
+[gd_scene load_steps=14 format=3 uid="uid://dxg7b0grh3358"]
 
 [ext_resource type="PackedScene" uid="uid://hpthf47ll7g1" path="res://objects/counter.tscn" id="1_1n1ky"]
 [ext_resource type="Script" path="res://scripts/testing.gd" id="1_ktgo3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://2sbnijbjwynt" path="res://objects/Player.tscn" id="5_aawvt"]
 [ext_resource type="Texture2D" uid="uid://jyxe6onif8e1" path="res://assets/potion_bottle.png" id="8_h2hx8"]
 [ext_resource type="Shader" path="res://shaders/math_demos.gdshader" id="8_ltbvf"]
+[ext_resource type="Material" uid="uid://dbwv8lteaymah" path="res://materials/demo_material.tres" id="10_ehtwl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tnurj"]
 shader = ExtResource("5_6df78")
@@ -44,7 +45,7 @@ shader_parameter/back_wave_color = Color(0.664591, 0.775854, 1, 1)
 shader_parameter/back_fill_color = Color(0.260019, 0.479397, 1, 1)
 shader_parameter/frequency = 1.225
 shader_parameter/amplitude = 0.025
-shader_parameter/offset = Vector2(4, 0.5)
+shader_parameter/offset = Vector2(4, 0.445)
 shader_parameter/center = Vector2(0.5, 0.5)
 shader_parameter/radius = 0.3
 shader_parameter/direction = true
@@ -94,6 +95,19 @@ texture = ExtResource("8_h2hx8")
 material = SubResource("ShaderMaterial_c20a4")
 offset_left = -128.0
 offset_top = -59.0
+offset_right = 124.0
+offset_bottom = 187.0
+pivot_offset = Vector2(125, 125)
+
+[node name="PotionBottle2" type="Sprite2D" parent="."]
+position = Vector2(47, 453)
+scale = Vector2(0.397375, 0.386699)
+texture = ExtResource("8_h2hx8")
+
+[node name="MathDemos" type="ColorRect" parent="PotionBottle2"]
+material = ExtResource("10_ehtwl")
+offset_left = -128.0
+offset_top = -62.0
 offset_right = 124.0
 offset_bottom = 187.0
 pivot_offset = Vector2(125, 125)
