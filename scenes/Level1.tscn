@@ -43,12 +43,13 @@ shader_parameter/front_fill_color = Color(0, 0, 1, 1)
 shader_parameter/back_wave_color = Color(0.664591, 0.775854, 1, 1)
 shader_parameter/back_fill_color = Color(0.260019, 0.479397, 1, 1)
 shader_parameter/frequency = 1.225
-shader_parameter/amplitude = 0.04
+shader_parameter/amplitude = 0.025
 shader_parameter/offset = Vector2(4, 0.5)
 shader_parameter/center = Vector2(0.5, 0.5)
 shader_parameter/radius = 0.3
 shader_parameter/direction = true
-shader_parameter/speed = 0.255
+shader_parameter/speed = 0.585
+shader_parameter/use_circle = true
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("nodeArray")]
 script = ExtResource("1_ktgo3")
