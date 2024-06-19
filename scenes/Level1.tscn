@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dxg7b0grh3358"]
+[gd_scene load_steps=12 format=3 uid="uid://dxg7b0grh3358"]
 
 [ext_resource type="PackedScene" uid="uid://hpthf47ll7g1" path="res://objects/counter.tscn" id="1_1n1ky"]
 [ext_resource type="Script" path="res://scripts/testing.gd" id="1_ktgo3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://shaders/circle.gdshader" id="5_6df78"]
 [ext_resource type="Texture2D" uid="uid://drfr58gsx6755" path="res://assets/icon.svg" id="5_a1g7l"]
 [ext_resource type="PackedScene" uid="uid://2sbnijbjwynt" path="res://objects/Player.tscn" id="5_aawvt"]
+[ext_resource type="Shader" path="res://shaders/math_demos.gdshader" id="8_ltbvf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tnurj"]
 shader = ExtResource("5_6df78")
@@ -20,6 +21,12 @@ shader_parameter/square_center = Vector2(0.5, 0.5)
 shader_parameter/square_size = Vector2(0.2, 0.2)
 shader_parameter/triangle_center = Vector2(0.4, 0.5)
 shader_parameter/triangle_size = Vector2(0.2, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c20a4"]
+shader = ExtResource("8_ltbvf")
+shader_parameter/scale = 8.0
+shader_parameter/color1 = Color(1, 1, 1, 1)
+shader_parameter/color2 = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fvggm"]
 shader = ExtResource("5_6df78")
@@ -61,11 +68,18 @@ texture = ExtResource("5_a1g7l")
 [node name="Player" parent="." instance=ExtResource("5_aawvt")]
 position = Vector2(574, 172)
 
+[node name="MathDemos" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_c20a4")
+offset_left = 371.0
+offset_top = 418.0
+offset_right = 434.0
+offset_bottom = 481.0
+
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_fvggm")
-offset_left = 151.0
-offset_top = 374.0
-offset_right = 251.0
-offset_bottom = 474.0
+offset_left = 267.0
+offset_top = 395.0
+offset_right = 367.0
+offset_bottom = 495.0
 
 [connection signal="soki" from="MyNode" to="MyNode" method="_on_soki"]
