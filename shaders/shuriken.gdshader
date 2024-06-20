@@ -13,6 +13,7 @@ uniform vec2 small_circle_center4 = vec2(0.2, 0.5); // Center of the fourth smal
 uniform float triangle_scale = 0.5; // Scale of the triangles
 uniform float pointiness = 1.5; // Factor to make the vertices pointy
 uniform float edge_thickness = 0.05; // Thickness of the edge effect
+uniform float lightness = 0.5;
 
 // Function to check if a point is inside a triangle
 bool is_point_in_triangle(vec2 pt, vec2 v1, vec2 v2, vec2 v3) {
@@ -79,7 +80,7 @@ void fragment() {
 
     // Sample the texture and blend it with the calculated color
     vec4 tex_color = texture(light_texture, UV);
-    color.rgb = mix(color.rgb, tex_color.rgb, 0.5);
+    color.rgb = mix(color.rgb, tex_color.rgb, lightness);
 
     // Set the final color
     COLOR = color;

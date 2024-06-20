@@ -17,4 +17,5 @@ shader_parameter/small_circle_center4 = Vector2(-0.17, -0.17)
 shader_parameter/triangle_scale = 0.2
 shader_parameter/pointiness = 1.965
 shader_parameter/edge_thickness = 0.055
+shader_parameter/lightness = 0.4
 shader_parameter/light_texture = ExtResource("2_8ebg4")
