@@ -1,11 +1,20 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://csmn7g4pipnap"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://csmn7g4pipnap"]
 
 [ext_resource type="Shader" path="res://shaders/shuriken.gdshader" id="1_su8a5"]
+[ext_resource type="Texture2D" uid="uid://djq1r8a3e13ce" path="res://assets/shuriken_light.jpg" id="2_8ebg4"]
 
 [resource]
 shader = ExtResource("1_su8a5")
-shader_parameter/triangle_color = Color(8.47101e-06, 0.62092, 0.713253, 1)
+shader_parameter/triangle_color = Color(1.30916e-05, 0.620919, 0.713253, 1)
+shader_parameter/edge_color = Color(1, 1, 1, 1)
 shader_parameter/center = Vector2(0.5, 0.5)
-shader_parameter/circle_radius = 0.08
-shader_parameter/triangle_scale = 0.16
-shader_parameter/pointiness = 2.82
+shader_parameter/circle_radius = 0.07
+shader_parameter/small_circle_radius = 0.1
+shader_parameter/small_circle_center1 = Vector2(0.17, -0.17)
+shader_parameter/small_circle_center2 = Vector2(0.17, 0.17)
+shader_parameter/small_circle_center3 = Vector2(-0.17, 0.17)
+shader_parameter/small_circle_center4 = Vector2(-0.17, -0.17)
+shader_parameter/triangle_scale = 0.2
+shader_parameter/pointiness = 1.965
+shader_parameter/edge_thickness = 0.055
+shader_parameter/light_texture = ExtResource("2_8ebg4")
