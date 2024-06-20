@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dxg7b0grh3358"]
+[gd_scene load_steps=14 format=3 uid="uid://dxg7b0grh3358"]
 
 [ext_resource type="PackedScene" uid="uid://hpthf47ll7g1" path="res://objects/counter.tscn" id="1_1n1ky"]
 [ext_resource type="Script" path="res://scripts/testing.gd" id="1_ktgo3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://jyxe6onif8e1" path="res://assets/potion_bottle.png" id="8_h2hx8"]
 [ext_resource type="Material" uid="uid://dbwv8lteaymah" path="res://materials/demo_material.tres" id="10_ehtwl"]
 [ext_resource type="Material" uid="uid://bjw8wvhj63ivr" path="res://materials/math_material.tres" id="10_y5bks"]
+[ext_resource type="Material" uid="uid://csmn7g4pipnap" path="res://materials/shuriken.tres" id="11_fq725"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tnurj"]
 shader = ExtResource("5_6df78")
@@ -96,5 +97,12 @@ offset_top = -62.0
 offset_right = 124.0
 offset_bottom = 187.0
 pivot_offset = Vector2(125, 125)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = ExtResource("11_fq725")
+offset_left = 461.0
+offset_top = 460.0
+offset_right = 529.0
+offset_bottom = 528.0
 
 [connection signal="soki" from="MyNode" to="MyNode" method="_on_soki"]

@@ -1,10 +1,10 @@
 shader_type canvas_item;
 
 uniform vec4 triangle_color : source_color = vec4(1.0, 0.0, 0.0, 1.0); // Color of the triangles
-uniform vec4 circle_color : source_color = vec4(0.0, 0.0, 0.0, 1.0); // Color of the circle
 uniform vec2 center = vec2(0.5, 0.5); // Center of the shape
 uniform float circle_radius = 0.1; // Radius of the circle
 uniform float triangle_scale = 0.5; // Scale of the triangles
+uniform float pointiness = 1.5; // Factor to make the vertices pointy
 
 // Function to check if a point is inside a triangle
 bool is_point_in_triangle(vec2 pt, vec2 v1, vec2 v2, vec2 v3) {
@@ -30,8 +30,14 @@ void fragment() {
 
     vec2 vertices[8];
     for (int i = 0; i < 8; ++i) {
-        float theta = radians(45.0 * intBitsToFloat(i));
-        vertices[i] = vec2(cos(theta), sin(theta)) * triangle_scale;
+        float theta = radians(45.0 * float(i));
+        float scale = i % 2 == 0 ? triangle_scale * pointiness : triangle_scale;
+        vertices[i] = vec2(cos(theta), sin(theta)) * scale;
+    }
+
+    // Check if the point is inside the circle
+    if (dist <= circle_radius) {
+        discard; // Discards the fragment inside the circle
     }
 
     vec4 color = vec4(0.0);
@@ -45,11 +51,6 @@ void fragment() {
             color = triangle_color;
             break;
         }
-    }
-
-    // Check if the point is inside the circle
-    if (dist <= circle_radius) {
-        color = circle_color;
     }
 
     // Set the final color
