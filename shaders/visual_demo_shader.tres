@@ -1,0 +1,96 @@
+[gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://dd2pwsn4rrduf"]
+
+[sub_resource type="VisualShaderNodeCompare" id="VisualShaderNodeCompare_mmy2h"]
+function = 4
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_xd6pf"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1, 1, 1), 2, 1.0]
+op_type = 6
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_76xqu"]
+parameter_name = "Color"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_x1ach"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_qe3hg"]
+parameter_name = "Center"
+default_value_enabled = true
+default_value = Vector2(0.5, 0.5)
+
+[sub_resource type="VisualShaderNodeVectorDistance" id="VisualShaderNodeVectorDistance_r40bk"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_po3q1"]
+parameter_name = "Radius"
+default_value_enabled = true
+default_value = 0.3
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform vec2 Center = vec2(0.500000, 0.500000);
+uniform float Radius = 0.30000001192093;
+uniform vec4 Color : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+
+
+
+void fragment() {
+// Input:2
+	vec2 n_out2p0 = UV;
+
+
+// Vector2Parameter:3
+	vec2 n_out3p0 = Center;
+
+
+// Distance:5
+	float n_out5p0 = distance(n_out2p0, n_out3p0);
+
+
+// FloatParameter:7
+	float n_out7p0 = Radius;
+
+
+// Compare:13
+	bool n_out13p0 = n_out5p0 < n_out7p0;
+
+
+// ColorParameter:15
+	vec4 n_out15p0 = Color;
+
+
+// Mix:14
+	float n_in14p2 = 1.00000;
+	vec4 n_out14p0 = mix(vec4(n_out13p0 ? 1.0 : 0.0), n_out15p0, n_in14p2);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out14p0.xyz);
+	COLOR.a = (n_out13p0 ? 1.0 : 0.0);
+
+
+}
+"
+graph_offset = Vector2(512.539, 482.708)
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(2380, 1020)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_x1ach")
+nodes/fragment/2/position = Vector2(1180, 900)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVec2Parameter_qe3hg")
+nodes/fragment/3/position = Vector2(1180, 1060)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorDistance_r40bk")
+nodes/fragment/5/position = Vector2(1580, 860)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_po3q1")
+nodes/fragment/7/position = Vector2(1180, 1300)
+nodes/fragment/13/node = SubResource("VisualShaderNodeCompare_mmy2h")
+nodes/fragment/13/position = Vector2(1800, 840)
+nodes/fragment/14/node = SubResource("VisualShaderNodeMix_xd6pf")
+nodes/fragment/14/position = Vector2(2160, 800)
+nodes/fragment/15/node = SubResource("VisualShaderNodeColorParameter_76xqu")
+nodes/fragment/15/position = Vector2(1180, 1520)
+nodes/fragment/connections = PackedInt32Array(2, 0, 5, 0, 3, 0, 5, 1, 5, 0, 13, 0, 7, 0, 13, 1, 13, 0, 0, 1, 13, 0, 14, 0, 15, 0, 14, 1, 14, 0, 0, 0)

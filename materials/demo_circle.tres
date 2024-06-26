@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://3c17n7v3aoxq"]
+
+[ext_resource type="Shader" path="res://shaders/demo_circle.gdshader" id="1_u26wg"]
+
+[resource]
+shader = ExtResource("1_u26wg")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.265
+shader_parameter/border = 0.103
+shader_parameter/value = 0.745
+shader_parameter/color_start = Color(0.00759009, 0.0201152, 0.209872, 1)
+shader_parameter/color_end = Color(0.968198, 0, 0.0433528, 1)
+shader_parameter/spread = 1.565
+shader_parameter/line_angle = 0.65
+shader_parameter/line_width = 0.045

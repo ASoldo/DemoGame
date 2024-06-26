@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dxg7b0grh3358"]
+[gd_scene load_steps=18 format=3 uid="uid://dxg7b0grh3358"]
 
 [ext_resource type="PackedScene" uid="uid://hpthf47ll7g1" path="res://objects/counter.tscn" id="1_1n1ky"]
 [ext_resource type="Script" path="res://scripts/testing.gd" id="1_ktgo3"]
@@ -11,6 +11,9 @@
 [ext_resource type="Material" uid="uid://dbwv8lteaymah" path="res://materials/demo_material.tres" id="10_ehtwl"]
 [ext_resource type="Material" uid="uid://bjw8wvhj63ivr" path="res://materials/math_material.tres" id="10_y5bks"]
 [ext_resource type="Material" uid="uid://csmn7g4pipnap" path="res://materials/shuriken.tres" id="11_fq725"]
+[ext_resource type="Material" uid="uid://3c17n7v3aoxq" path="res://materials/demo_circle.tres" id="12_gq4ly"]
+[ext_resource type="Shader" uid="uid://dd2pwsn4rrduf" path="res://shaders/visual_demo_shader.tres" id="13_y1m15"]
+[ext_resource type="Material" uid="uid://lwui2ynu646j" path="res://materials/soldo_test.tres" id="14_amd3i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tnurj"]
 shader = ExtResource("5_6df78")
@@ -37,6 +40,12 @@ shader_parameter/square_center = Vector2(0.5, 0.5)
 shader_parameter/square_size = Vector2(0.2, 0.2)
 shader_parameter/triangle_center = Vector2(0.5, 0.5)
 shader_parameter/triangle_size = Vector2(0.2, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_syoor"]
+shader = ExtResource("13_y1m15")
+shader_parameter/Center = Vector2(0.5, 0.5)
+shader_parameter/Radius = 0.245
+shader_parameter/Color = Color(0.125847, 0.420914, 0.446227, 1)
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("nodeArray")]
 script = ExtResource("1_ktgo3")
@@ -104,5 +113,26 @@ offset_left = 461.0
 offset_top = 460.0
 offset_right = 529.0
 offset_bottom = 528.0
+
+[node name="DemoCircle" type="ColorRect" parent="."]
+material = ExtResource("12_gq4ly")
+offset_left = 741.0
+offset_top = 112.0
+offset_right = 886.0
+offset_bottom = 253.0
+
+[node name="VisualDemoShader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_syoor")
+offset_left = 447.0
+offset_top = 26.0
+offset_right = 487.0
+offset_bottom = 66.0
+
+[node name="SoldoTest" type="ColorRect" parent="."]
+material = ExtResource("14_amd3i")
+offset_left = 396.0
+offset_top = 27.0
+offset_right = 436.0
+offset_bottom = 67.0
 
 [connection signal="soki" from="MyNode" to="MyNode" method="_on_soki"]
